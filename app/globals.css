@@ -19,3 +19,24 @@
   }
 }
 
+.cartoon-box {
+  box-shadow: 6px 6px 0px black;
+}
+
+.cartoon-input {
+  background: #fff8e6;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  80% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-pop {
+  animation: pop 0.4s ease-out forwards;
+}
+
+.meme-font {
+  font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+  letter-spacing: 2px;
+}
