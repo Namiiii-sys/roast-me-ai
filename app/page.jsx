@@ -60,11 +60,7 @@ export default function Page() {
           >
             {loading ? "Cooking roast..." : "Roast Me!"}
 
-            <div className="absolute left-1/2 -bottom-4 -translate-x-1/2 flex gap-1">
-              <span className="animate-pulse">🔥</span>
-              <span className="animate-bounce">🔥</span>
-              <span className="animate-pulse">🔥</span>
-            </div>
+          
           </button>
         </div>
 
