@@ -16,7 +16,7 @@ export default function Page() {
     });
 
     const data = await res.json();
-    setRoast(data.choices?.[0]?.message?.content || 'No roast found.');
+    setRoast(data.output || 'No roast found.');
   }
 
   return (

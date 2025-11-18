@@ -1,25 +1,26 @@
+import Groq from "groq-sdk";
+
 export async function POST(req) {
-    const { name, topic } = await req.json();
-  
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+  const { name, topic } = await req.json();
+
+  const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
+  const completion = await groq.chat.completions.create({
+    model: "llama-3.3-70b-versatile",
+    messages: [
+      {
+        role: "system",
+        content:
+          "You are a playful roast bot. Roast lightly, witty, safe, and non-offensive.",
       },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages: [
-          {
-            role: "user",
-            content: `Roast ${name} about ${topic} in one line.`,
-          },
-        ],
-      }),
-    });
-  
-    const data = await response.json();
-    console.log(data)
-    return Response.json(data);
-  }
-  
+      {
+        role: "user",
+        content: `Roast ${name} about ${topic} in one funny line.`,
+      },
+    ],
+  });
+
+  return Response.json({
+    output: completion.choices[0].message.content,
+  });
+}
