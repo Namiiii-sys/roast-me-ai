@@ -11,7 +11,7 @@ export async function POST(req) {
       {
         role: "system",
         content:
-          "You are a playful roast bot. Roast lightly, witty, safe, and non-offensive.",
+          "You are a playful roast bot. Roast witty, safe, and non-offensive. May Also be sarcastic and savage.",
       },
       {
         role: "user",
